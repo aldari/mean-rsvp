@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -8,12 +11,24 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CallbackComponent } from './pages/callback/callback.component';
+import { LoadingComponent } from './core/loading.component';
+
 import { AuthService } from './auth/auth.service';
+import { UtilsService } from './core/utils.service';
+import { FilterSortService } from './core/filter-sort.service';
+import { ApiService } from './core/api.service';
 
 @NgModule({
-	declarations: [ AppComponent, HomeComponent, HeaderComponent, FooterComponent, CallbackComponent ],
-	imports: [ BrowserModule, AppRoutingModule ],
-	providers: [ AuthService ],
+	declarations: [
+		AppComponent,
+		HomeComponent,
+		HeaderComponent,
+		FooterComponent,
+		CallbackComponent,
+		LoadingComponent
+	],
+	imports: [ BrowserModule, AppRoutingModule, HttpClientModule, FormsModule ],
+	providers: [ AuthService, DatePipe, ApiService, UtilsService, FilterSortService ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}

@@ -17,6 +17,10 @@ import { AuthService } from './auth/auth.service';
 import { UtilsService } from './core/utils.service';
 import { FilterSortService } from './core/filter-sort.service';
 import { ApiService } from './core/api.service';
+import { AdminComponent } from './pages/admin/admin.component';
+import { EventComponent } from './pages/event/event.component';
+import { EventDetailComponent } from './pages/event/event-detail/event-detail.component';
+import { RsvpComponent } from './pages/event/rsvp/rsvp.component';
 
 @NgModule({
 	declarations: [
@@ -25,7 +29,11 @@ import { ApiService } from './core/api.service';
 		HeaderComponent,
 		FooterComponent,
 		CallbackComponent,
-		LoadingComponent
+		LoadingComponent,
+		AdminComponent,
+		EventComponent,
+		EventDetailComponent,
+		RsvpComponent
 	],
 	imports: [ BrowserModule, AppRoutingModule, HttpClientModule, FormsModule ],
 	providers: [ AuthService, DatePipe, ApiService, UtilsService, FilterSortService ],

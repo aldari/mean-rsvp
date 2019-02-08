@@ -96,6 +96,15 @@ export class ApiService {
             .pipe(catchError((error) => this._handleError(error)));
     }
 
+    // GET all events a specific user has RSVPed to (login required)
+    getUserEvents$(userId: string): Observable<EventModel[]> {
+        return this.http
+            .get<EventModel[]>(`${ENV.BASE_API}events/${userId}`, {
+                headers: new HttpHeaders().set('Authorization', this._authHeader)
+            })
+            .pipe(catchError((error) => this._handleError(error)));
+    }
+
     private _handleError(err: HttpErrorResponse | any): Observable<any> {
         const errorMsg = err.message || 'Error: Unable to complete request.';
         if (err.message && err.message.indexOf('No JWT present') > -1) {
